@@ -11,6 +11,7 @@ Each file name is named by the *key word*. For demo details, please refer to the
 ## File list
 ### 1 Java features, grammars
 - MyComparator.java    Try to override the default comparator for Collections.sort(List<T>, ? super T). Mainly override the compare(obj1, obj2) method. In this way, we can compare complicate structure, like nested lists [[], []].
+- MyArray.java   Try to implement some useful functions for java Array object, including remove duplicate elements.
 
 ### 4 Clean code demos
 - GuessStatisticsMessage.java    Try to seperate the logic, to make functions and if statement easy to understand. 
