@@ -1,9 +1,9 @@
 import java.util.Comparator;
 
 /**
- * Created by ray on 4/4/16.
+ * Created by Ray on 4/4/16.
  * MyComparator  包括三个成员变量. 实现对[a,b,c] 的排序和比较判断
- * 注意： 在equals函数中做类型强制转换的时候，要确保转弯安全，做一些if判断。
+ * 注意： 在equals函数中做类型强制转换的时候，要确保转换安全，做一些if判断。
  */
 public class MyComparator implements Comparator<MyComparator>{
     private int a;
@@ -44,10 +44,10 @@ public class MyComparator implements Comparator<MyComparator>{
         if(this == obj){
             return true;
         }
-        if(null == obj){
+        if(null == obj){      // check null
             return false;
         }
-        if(getClass() != obj.getClass()){
+        if(getClass() != obj.getClass()){  // check the same class
             return false;
         }
         MyComparator myComparator = (MyComparator)obj;
