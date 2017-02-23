@@ -42,3 +42,52 @@ private void swap(int[] A, int i, int j){
     A[i] = A[j];
     A[j] = tmp;
 }
+
+
+/*
+ *  一般来讲 Quick Sort的速度还是要快一点,最优为O(nlog2)，而且Merge Sort 还会使用额外的空间。另外就是MergeSort是稳定的排序。而快速排序是不稳定的。如果不允许使用递归，那么quick sort又不是一个好的选择了。
+    关于Java中排序的实现
+ */
+void mergeSort(int A[])
+{
+    if (A==null || A.length<=1)
+        return;
+    int[] tmp = new int[A.length];
+    mergeSort(A, 0, A.length-1, tmp);
+}
+
+void mergeSort(int a[], int p, int q, int[] tmp)
+{
+    if (p < q)
+    {
+        int mid = p + (q-p) / 2;
+        mergeSort(a, p, mid, tmp);     //左边有序
+        mergeSort(a, mid + 1, q, tmp); //右边有序
+        mergeArray(a, p, mid, q, tmp); //再将二个有序数列合并
+    }
+}
+
+//将有二个有序数列a[first...mid]和a[mid...last]合并。  
+void mergeArray(int a[], int p, int mid, int q, int tmp[])
+{
+    int i = p, j = mid + 1;
+    int k = 0;
+
+    while (i <= mid && j <= q)
+        {
+            if (a[i] <= a[j])
+                tmp[k++] = a[i++];
+            else
+                tmp[k++] = a[j++];
+        }
+    
+    while (i <= mid)
+            tmp[k++] = a[i++];
+    
+    while (j <= q)
+            tmp[k++] = a[j++];
+    
+    for (i = 0; i < k; i++)
+            a[p + i] = tmp[i];
+}
+
